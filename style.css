@@ -17,10 +17,10 @@
 /*
   3. Allow percentage-based heights in the application
 */
-html,
+/* html,
 body {
   height: 100%;
-}
+} */
 
 /*
   Typographic tweaks!
@@ -32,6 +32,7 @@ body {
   color: white;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  background: linear-gradient(0deg, #110523 50% 70%, #5f1a3c);
 }
 
 /*
@@ -75,14 +76,15 @@ nav {
   background-size: cover;
   background-position: center;
   width: 100vw;
-  height: 160px;
+  height: 120px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 nav .main-heading {
-  margin: 0 auto;
-  padding: 1em 0;
-  width: 450px;
+  padding: 1em;
   max-width: 500px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -90,8 +92,7 @@ nav .main-heading {
 }
 
 nav .logo-signup {
-  width: 450px;
-  max-width: 500px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -99,7 +100,7 @@ nav .logo-signup {
 }
 
 nav .logo-signup .logo {
-  width: 10em;
+  width: 8em;
   position: relative;
   left: -10px;
 }
@@ -107,48 +108,51 @@ nav .logo-signup .logo {
 nav .logo-signup .signup-btn {
   cursor: pointer;
   padding: 6px 24px;
+  font-size: 0.6em;
   font-weight: 900;
   border-style: none;
   border-radius: 20px;
   color: white;
   background: linear-gradient(90deg, rgb(201, 45, 122) 0%, rgb(238, 110, 98) 100%);
 }
+
+nav h1 {
+  font-size: 1.35em;
+  line-height: normal;
+}
+
 /*** End Navigation ***/
 
 /*** Start Main Section ***/
 .container {
+  padding: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(0deg, #110523 50% 85%, #5f1a3c);
-}
-
-#livestreams-list {
-  padding: 0.5em 1em;
 }
 
 #livestreams-list>p,
 #creator-highlights>p {
-  margin: 0.5em;
   text-align: center;
+  font-weight: bold;
 }
 
 #livestreams-list .collections ul,
-#creator-options .creator-options-list ul {
+#creator-options .creator-options-list ul,
+#creator-options .creator-options-mobile-list ul,
+#creator-highlights .social-media-list ul {
   margin: 0;
   padding: 0;
 }
 
 #livestreams-list .collections ul li {
-  width: 450px;
-  max-width: 500px;
   font-weight: 900;
   font-size: 0.8rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0.5em 0;
+  margin: 0.5em auto;
   padding: 0.5em 0.4em;
   list-style: none;
   background-color: #2e1e3b;
@@ -162,7 +166,7 @@ nav .logo-signup .signup-btn {
 }
 
 #livestreams-list .collections div {
-  width: 90%;
+  width: 80%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -178,26 +182,47 @@ nav .logo-signup .signup-btn {
 }
 
 #livestreams-list,
-#creator-options {
+#creator-options,
+#creator-highlights {
+  width: 100%;
   margin: 1em 0;
 }
 
-#creator-options .creator-options-list ul a {
+#creator-options .creator-options-list {
+  display: none;
+}
+
+#creator-options .creator-options-list ul a,
+#creator-options .creator-options-mobile-list ul a {
   text-decoration: none;
   color: white;
 }
 
-#creator-options .creator-options-list ul a li {
-  width: 450px;
-  max-width: 500px;
+#creator-options .creator-options-list ul a li,
+#creator-options .creator-options-mobile-list ul a li {
   text-align: center;
   font-weight: 900;
   font-size: 0.8rem;
-  margin: 1em 0;
+  margin: 1em auto;
   padding: 0.8em 0.4em;
   list-style: none;
   background: linear-gradient(90deg, rgb(201, 45, 122) 0%, rgb(238, 110, 98) 100%);
   border-radius: 20px;
+}
+
+#creator-options .creator-options-list ul a:last-child li {
+  display: flex;
+  justify-content: center;
+}
+
+#creator-options .creator-options-list ul a:last-child li::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  background-image: url('./assets/sail-boat.png');
+  background-size: cover;
 }
 
 #creator-highlights .highlight-list {
@@ -208,15 +233,34 @@ nav .logo-signup .signup-btn {
 }
 
 #creator-highlights .highlight-list div {
-  width: 60%;
   border: solid 3px rgba(31, 13, 59, 0.411);
   border-radius: 12px;
-  margin: 1em;
+  margin: 1em 0;
 }
 
 #creator-highlights .highlight-list div img {
   border-radius: 12px;
 }
+
+#creator-highlights .highlight-list div:last-child img {
+  display: none;
+}
+
+.social-media-list ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.social-media-list ul a li {
+  color: white;
+  border: solid 2px;
+  width: 40px;
+  height: 40px;
+  list-style: none;
+  border-radius: 20px;
+  padding: 10px;
+}
+
 /*** End Main Section ***/
 
 /*** Start Button Element State Modification ***/
@@ -237,4 +281,80 @@ nav .logo-signup .signup-btn:active,
 #livestreams-list .collections .collect-btn:active {
   transform: scale(0.97);
 }
+
 /*** End Button Element State Modification ***/
+
+@media screen and (min-width: 768px) {
+  nav {
+    height: 160px;
+  }
+
+  nav .main-heading {
+    padding: 1em 0;
+  }
+
+  nav .logo-signup {
+    width: 100%;
+  }
+
+  nav .logo-signup .logo {
+    width: 10em;
+    position: relative;
+    left: -10px;
+  }
+
+  nav .logo-signup .signup-btn {
+    font-size: 1em;
+  }
+
+  nav h1 {
+    font-size: 1.4em;
+  }
+
+  /*** Start Main Section ***/
+  #livestreams-list .collections ul li {
+    max-width: 500px;
+  }
+
+  #livestreams-list .collections img {
+    width: 4em;
+  }
+
+  #livestreams-list .collections div {
+    width: 85%;
+  }
+
+  #livestreams-list,
+  #creator-options,
+  #creator-highlights {
+    width: 100%;
+    margin: 1em 0;
+  }
+
+  #creator-options .creator-options-list {
+    max-width: 500px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  #creator-options .creator-options-mobile-list {
+    display: none;
+  }
+
+  #creator-highlights .highlight-list {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  #creator-highlights .highlight-list div:last-child img {
+    display: block;
+  }
+
+  .social-media-list {
+    max-width: 500px;
+    margin: 0 auto;
+    display: none;
+  }
+
+  /*** End Main Section ***/
+}
