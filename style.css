@@ -278,6 +278,7 @@ nav .logo-signup .signup-btn:active,
 /*** End Button Element State Modification ***/
 
 @media screen and (min-width: 768px) {
+
   /*** Start Nav Section ***/
   nav {
     height: 160px;
@@ -304,6 +305,7 @@ nav .logo-signup .signup-btn:active,
   nav h1 {
     font-size: 1.4em;
   }
+
   /*** Start Nav Section ***/
 
   /*** Start Main Section ***/
@@ -347,7 +349,7 @@ nav .logo-signup .signup-btn:active,
     margin: 1em auto;
   }
 
-  #creator-highlights .highlight-list div:last-child img {
+  #creator-highlights .highlight-list div:last-child {
     display: block;
   }
 
